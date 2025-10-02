@@ -18,7 +18,7 @@ env:
 jobs:
   disable_workflows:
     name: Disable workflows
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
 
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
     if: |
       !github.event.repository.is_template
     name: Start Exercise
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
 
     steps:
       - name: Checkout
@@ -91,7 +91,7 @@ jobs:
     if: |
       !github.event.repository.is_template
     name: Create exercise issue
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
 
     outputs:
       issue-url: ${{ steps.create-issue.outputs.ISSUE_URL }}
@@ -134,7 +134,7 @@ jobs:
 
   post_next_step_content:
     name: Post next step content
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: [create_exercise]
     env:
       ISSUE_URL: ${{ needs.create_exercise.outputs.issue-url }}
